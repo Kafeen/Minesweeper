@@ -1,0 +1,6 @@
+<div class="grid">
+  <row *ngFor="let row of rows"
+       [row]="row"
+       (reveal)="handleTileClick($event)"
+  ></row>
+</div>
