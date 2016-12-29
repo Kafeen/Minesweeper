@@ -1,1 +1,6 @@
-<div class="tile" (click)="onClick()" oncontextmenu="onClick(); return false;">🚩</div>
+<div class="tile" [class.isRevealed]="tile.isRevealed" (click)="onClick()" oncontextmenu="onClick(); return false;">
+    <span *ngIf="this.tile.isRevealed">
+        <span *ngIf="this.tile.isMine">💣</span>
+        <span *ngIf="!this.tile.isMine && this.tile.numBombsNear > 0">{{this.tile.numBombsNear}}</span>
+    </span>
+</div>

@@ -17,7 +17,8 @@ export class Tile implements OnInit {
   }
 
   onClick() {
-    console.log('click ' + this.tile);
+    this.tile.isRevealed = true;
+    console.log('click ' + this.tile.id);
     //  this.tileClick.next(this.tile);
     this.reveal.emit(this.tile);
   }

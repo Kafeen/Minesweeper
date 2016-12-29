@@ -25,6 +25,6 @@ export class Grid implements OnInit, OnChanges {
   }
 
   handleTileClick(tile) {
-    console.log('Grid '+'handleTileClick ' + tile.id)
+    console.log('Grid '+'handleTileClick ' + tile.id);
   }
 }
