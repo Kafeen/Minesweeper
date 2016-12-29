@@ -70,11 +70,31 @@ function initTiles() {
   return tiles;
 }
 
+function revealTile(tile)
+{
+  tile.isRevealed = true;
+
+  if(tile.isMine) {
+    console.log('GAME OVER');
+    return;
+  }
+  
+  if(tile.numBombsNear > 0)
+    return;
+
+  for(var k = 0; k < tile.neighbour.length; ++k) {
+    if(!tile.neighbour[k].isRevealed) {
+      revealTile(tile.neighbour[k]);
+    }
+  }
+}
+
 export function createGame() {
   return {
     rows: 8,
     columns: 8,
     mines: 8,
-    tiles: initTiles()
+    tiles: initTiles(),
+    reveal: revealTile
   }
 }

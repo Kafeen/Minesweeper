@@ -26,5 +26,7 @@ export class Grid implements OnInit, OnChanges {
 
   handleTileClick(tile) {
     console.log('Grid '+'handleTileClick ' + tile.id);
+
+    this.game.reveal(tile);
   }
 }
