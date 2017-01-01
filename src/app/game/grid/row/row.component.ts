@@ -10,6 +10,7 @@ export class Row implements OnInit {
 
   @Input() row: any;
   @Output() reveal: EventEmitter<any> = new EventEmitter();
+  @Output() flag: EventEmitter<any> = new EventEmitter();
 
   constructor() { }
 
@@ -20,6 +21,11 @@ export class Row implements OnInit {
   handleTileClick(tile) {
     console.log('Row '+'handleTileClick ' + tile);
     this.reveal.emit(tile);
+  }
+
+  onFlag(tile) { 
+    console.log('Row '+'flag ' + tile);
+    this.flag.emit(tile);
   }
 
 }

@@ -9,6 +9,7 @@ export class Tile implements OnInit {
 
   @Input() tile: any;
   @Output() reveal: EventEmitter<any> = new EventEmitter();
+  @Output() flag: EventEmitter<any> = new EventEmitter();
 
   constructor() { }
 
@@ -17,9 +18,24 @@ export class Tile implements OnInit {
   }
 
   onClick() {
-    this.tile.isRevealed = true;
+    
     console.log('click ' + this.tile.id);
     //  this.tileClick.next(this.tile);
-    this.reveal.emit(this.tile);
+    //  this.reveal.emit(this.tile);
   }
+
+  onEvent(event: MouseEvent): void {
+        switch(event.type) {
+          case "click":
+            this.reveal.emit(this.tile);
+          break;
+
+          case "dblclick":
+          break;
+
+          case "contextmenu":
+            this.flag.emit(this.tile);
+          break;
+        }
+    }
 }

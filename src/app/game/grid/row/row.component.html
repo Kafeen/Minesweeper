@@ -1,6 +1,7 @@
 <div class="row">
   <tile *ngFor="let tile of row"
         [tile]="tile"
-        (reveal)="handleTileClick($event)">
+        (reveal)="handleTileClick($event)"
+        (flag)="onFlag($event)">
   </tile>
 </div>

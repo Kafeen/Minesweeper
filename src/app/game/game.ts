@@ -6,7 +6,7 @@ function initTiles() {
     var row = [];
 
     for(let j = 0; j < 8; ++j) {
-      row.push({id: i * 8 + j, isMine: false, isRevealed: false});
+      row.push({id: i * 8 + j, isMine: false, isRevealed: false, isFlagged: false});
     }
 
     tiles.push(row);
@@ -70,8 +70,10 @@ function initTiles() {
   return tiles;
 }
 
-function revealTile(tile)
-{
+function revealTile(tile) {
+  if(tile.isFlagged)
+    return;
+    
   tile.isRevealed = true;
 
   if(tile.isMine) {
@@ -89,12 +91,17 @@ function revealTile(tile)
   }
 }
 
+function toggleTileFlag(tile) {
+  tile.isFlagged = true;
+}
+
 export function createGame() {
   return {
     rows: 8,
     columns: 8,
     mines: 8,
     tiles: initTiles(),
-    reveal: revealTile
+    reveal: revealTile,
+    flag: toggleTileFlag
   }
 }

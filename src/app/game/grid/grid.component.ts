@@ -29,4 +29,10 @@ export class Grid implements OnInit, OnChanges {
 
     this.game.reveal(tile);
   }
+
+  onFlag(tile) {
+    console.log('Grid '+'flag ' + tile.id);
+
+    this.game.flag(tile);
+  }
 }

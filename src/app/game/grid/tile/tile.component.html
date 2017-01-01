@@ -1,4 +1,7 @@
-<div class="tile" [class.isRevealed]="tile.isRevealed" (click)="onClick()" oncontextmenu="onClick(); return false;">
+<div class="tile" [class.isRevealed]="tile.isRevealed" oncontextmenu="return false;" on-click="onEvent($event)" on-dblclick="onEvent($event)" on-contextmenu="onEvent($event)">
+    <span *ngIf="!this.tile.isRevealed">
+        <span *ngIf="this.tile.isFlagged">🚩</span>
+    </span>
     <span *ngIf="this.tile.isRevealed">
         <span *ngIf="this.tile.isMine">💣</span>
         <span *ngIf="!this.tile.isMine && this.tile.numBombsNear > 0">{{this.tile.numBombsNear}}</span>
