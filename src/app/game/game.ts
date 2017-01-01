@@ -73,7 +73,7 @@ function initTiles() {
 function revealTile(tile) {
   if(tile.isFlagged)
     return;
-    
+
   tile.isRevealed = true;
 
   if(tile.isMine) {
@@ -92,7 +92,7 @@ function revealTile(tile) {
 }
 
 function toggleTileFlag(tile) {
-  tile.isFlagged = true;
+  tile.isFlagged = !tile.isFlagged;
 }
 
 export function createGame() {
