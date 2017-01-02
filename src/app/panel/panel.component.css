@@ -1,0 +1,5 @@
+div {
+  margin: 5px;
+  background-color: #E0E0E0;
+  box-shadow: inset 1px 1px 0 1px #F0F0F0, inset 0 0 0 2px #808080;
+}
